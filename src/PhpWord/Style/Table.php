@@ -631,4 +631,41 @@ class Table extends Border
 
         return $this;
     }
+
+    const LAYOUT_AUTO = 'autofit';
+
+    /**
+     * Fixed Width Table Layout
+     *
+     * @var string
+     */
+    const LAYOUT_FIXED = 'fixed';
+
+    /**
+     * @var string Table Layout
+     */
+    private $layout = self::LAYOUT_AUTO;
+    /**
+     * Get layout
+     *
+     * @return string
+     */
+    public function getLayout()
+    {
+        return $this->layout;
+    }
+
+    /**
+     * Set layout
+     *
+     * @param string $value
+     * @return self
+     */
+    public function setLayout($value = null)
+    {
+        $enum = array(self::LAYOUT_AUTO, self::LAYOUT_FIXED);
+        $this->layout = $this->setEnumVal($value, $enum, $this->layout);
+
+        return $this;
+    }
 }
