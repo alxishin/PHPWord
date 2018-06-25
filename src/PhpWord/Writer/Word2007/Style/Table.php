@@ -45,6 +45,9 @@ class Table extends AbstractStyle
 
         if ($style instanceof TableStyle) {
             $this->writeStyle($xmlWriter, $style);
+            $xmlWriter->startElement('w:tblLayout');
+            $xmlWriter->writeAttribute('w:type', $style->getLayout());
+            $xmlWriter->endElement();
         } elseif (is_string($style)) {
             $xmlWriter->startElement('w:tblPr');
             $xmlWriter->startElement('w:tblStyle');
